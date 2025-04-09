@@ -26,10 +26,20 @@ function obtenerPokemon(listaIds){
     //
     // fetch https://pokeapi.co/api/v2/pokemon?limit=150&offset=0
     // De todo el fetch, obtener la info de esos ids en particular, en base al indice
-    // y luego recorrer esos en la siguiente url
-    // fetch https://pokeapi.co/api/v2/pokemon/${}
+    // y luego recorrer esos en la siguiente url, segun el nombre del pokemon
+    // fetch https://pokeapi.co/api/v2/pokemon/${nombrePokemon}
 
 
+// respuesta = {
+//     [nombrePokemon]:{
+//         id: 1,
+//         altura: 10
+//     },
+//     ditto:{
+//         id: 2,
+//         altura: 10
+//     }
+// }
 
     console.log("Respuesta final: ", respuesta);
     
