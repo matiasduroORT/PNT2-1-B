@@ -128,10 +128,16 @@ let ColoresMapeados = colores.map(color => "El Color es: " + color)
 // let num = 7
 // if(num === 7) console.log("es siete");
 
-console.log("Colores: ", colores);
+// console.log("Colores: ", colores);
 
 // Reverse: Da vuelta un array
-console.log("Colores Reverseados: ", colores.reverse());
+// console.log("Colores Reverseados: ", colores.reverse());
+
+let numbers = [1, 2, 3 ,4]
+
+let coloress = ['rojo', 'blanco']
+
+console.log([...numbers, 5, 6, ...colores]);
 
 
 

@@ -56,118 +56,116 @@ const promesaBasica = new Promise((resolve, reject) => {
 
 // Funcion que devuelve una promesa
 
-function obtenerNumeroConDelay(numero){
-    return new Promise( (res, rej) =>{
-        if(!numero) rej(0)
+// function obtenerNumeroConDelay(numero){
+//     return new Promise( (res, rej) =>{
+//         if(!numero) rej(0)
 
-        setTimeout(() => {
-            res(numero)
-        }, 2000);
-    })
-}
-
-function obtenerPalabraConDelay(palabra){
-    return new Promise(( resolve, reject) => {
-        if (!palabra) reject("Nada")
-            setTimeout(() => {
-                resolve(palabra)
-            }, 2000);
-    })
-}
-
-// obtenerNumeroConDelay(42).then( num => console.log('Numero recibido: ', num))
-// obtenerPalabraConDelay("Parlante").then( word => console.log('Palabra recibida: ', word))
-
-// Promise ALL
-
-// Ejecutar varias promesas en paralelo, y esperar que todas terminen
-
-// const promesas = [
-//     obtenerNumeroConDelay(),
-//     obtenerPalabraConDelay('Parlante')
-// ]
-
-// const resultados = Promise.all(promesas).then((resultados) => {
-//     console.log('Resultados de todas las promesas: ', resultados);
-// }).catch((error) => {
-//     console.log("Error: ", error);
-// })
-
-// PROMESA CON FETCH
-// fetch: funcion nativa de javascript para consultas HTTP
-// fetch: me devuelve una PROMESA
-// .json(): EXTRAE LA DATA, DE LA RESPUESTA DE LA API
-
-let pokemonData;
-
-// const pokemon = fetch("https://pokeapi.co/api/v2/pokemon/charmander")
-//                 .then((res) => res.json())
-//                 .then((data) => {
-//                     console.log("Nombre del pokemon: ", data.name);
-//                     console.log("Altura del pokemon: ", data.height);
-//                     console.log("Peso del pokemon: ", data.weight);
-//                     console.log("Imagen del pokemon: ", data.sprites.front_default);
-//                     pokemonData = data
-//                 })
-//                 .catch( err  => {
-//                     console.log("Error en la consulta: ", err);
-                    
-//                 })
-
-                // setTimeout(() => {
-                //     console.log("DATA POKEMON: ", pokemonData.name);
-                // }, 1000);
-
-
-// ASYNC / AWAIT 
-// Es una forma mas LEGIBLE de trabajar con promesas
-
-// ASYNC se usa para declarar a una funcion como asincrona
-// Puedo declarar que en algun punto, se quede a esperar algo
-// Para que algo espere, le agrego el await adelante 
-
-
-
-// const obtenerPokemon = async (nombre) => {
+//         setTimeout(() => {
+//             res(numero)
+//         }, 2000);
+//     })
 // }
+
+// function obtenerPalabraConDelay(palabra){
+//     return new Promise(( resolve, reject) => {
+//         if (!palabra) reject("Nada")
+//             setTimeout(() => {
+//                 resolve(palabra)
+//             }, 2000);
+//     })
+// }
+
+// // obtenerNumeroConDelay(42).then( num => console.log('Numero recibido: ', num))
+// // obtenerPalabraConDelay("Parlante").then( word => console.log('Palabra recibida: ', word))
+
+// // Promise ALL
+
+// // Ejecutar varias promesas en paralelo, y esperar que todas terminen
+
+// // const promesas = [
+// //     obtenerNumeroConDelay(),
+// //     obtenerPalabraConDelay('Parlante')
+// // ]
+
+// // const resultados = Promise.all(promesas).then((resultados) => {
+// //     console.log('Resultados de todas las promesas: ', resultados);
+// // }).catch((error) => {
+// //     console.log("Error: ", error);
+// // })
+
+// // PROMESA CON FETCH
+// // fetch: funcion nativa de javascript para consultas HTTP
+// // fetch: me devuelve una PROMESA
+// // .json(): EXTRAE LA DATA, DE LA RESPUESTA DE LA API
+
+// let pokemonData;
+
+// // const pokemon = fetch("https://pokeapi.co/api/v2/pokemon/charmander")
+// //                 .then((res) => res.json())
+// //                 .then((data) => {
+// //                     console.log("Nombre del pokemon: ", data.name);
+// //                     console.log("Altura del pokemon: ", data.height);
+// //                     console.log("Peso del pokemon: ", data.weight);
+// //                     console.log("Imagen del pokemon: ", data.sprites.front_default);
+// //                     pokemonData = data
+// //                 })
+// //                 .catch( err  => {
+// //                     console.log("Error en la consulta: ", err);
+                    
+// //                 })
+
+//                 // setTimeout(() => {
+//                 //     console.log("DATA POKEMON: ", pokemonData.name);
+//                 // }, 1000);
+
+
+// // ASYNC / AWAIT 
+// // Es una forma mas LEGIBLE de trabajar con promesas
+
+// // ASYNC se usa para declarar a una funcion como asincrona
+// // Puedo declarar que en algun punto, se quede a esperar algo
+// // Para que algo espere, le agrego el await adelante 
+
+
+
+// // const obtenerPokemon = async (nombre) => {
+// // }
  
-let nombrePokemon;
+// let nombrePokemon;
 
-// TRY / CATCH
-// TRY: Intenta ejecutar el codigo
+// // TRY / CATCH
+// // TRY: Intenta ejecutar el codigo
 
-async function obtenerPokemon(nombre){
+// async function obtenerPokemon(nombre){
 
-    try {
-        const respuesta = fetch(`https://pokeapi.co/api/v2/pokemon/${nombre}`)
-        console.log("PROMESA: ", typeof respuesta);
+//     try {
+//         const respuesta = await fetch(`https://pokeapi.co/api/v2/pokemon/${nombre}`)       
+//         const data =  await respuesta.json()
         
-        const data =  await respuesta.json()
-
-        // const respuestas = await Promise.all(obtenerNumeroConDelay(5), obtenerPalabraConDelay('Poke'))
-        const [numero, palabra] = await Promise.all([obtenerNumeroConDelay(5), obtenerPalabraConDelay('Poke')])
-        console.log("numero: ", numero);
-        console.log("palabra: ", palabra);
+//         // const respuestas = await Promise.all(obtenerNumeroConDelay(5), obtenerPalabraConDelay('Poke'))
+//         const [numero, palabra] = await Promise.all([obtenerNumeroConDelay(5), obtenerPalabraConDelay('Poke')])
+//         console.log("numero: ", numero);
+//         console.log("palabra: ", palabra);
 
 
-    } catch (error) {
-        // console.log("Ups, algo fallo", error);
+//     } catch (error) {
+//         // console.log("Ups, algo fallo", error);
         
-    }
-}
-obtenerPokemon('pikachu')
+//     }
+// }
+// obtenerPokemon('pikachu')
 
-// CALLBACKS aninados o callback Hell => Es un codigo muy dificil de leer
-// Promesas => Encadenamiento, sencillo de callbacks, con then y catch
-// Async/Await => Escritura mas sencilla de leer (Parece codigo sincronica, tiene el await que permite esperar y hacerse asincronico)
+// // CALLBACKS aninados o callback Hell => Es un codigo muy dificil de leer
+// // Promesas => Encadenamiento, sencillo de callbacks, con then y catch
+// // Async/Await => Escritura mas sencilla de leer (Parece codigo sincronica, tiene el await que permite esperar y hacerse asincronico)
 
-// Resumen:
-// Promise = representa una operacion que puede completarse, o fallar. Se manejan con then o async/await
-// then = Se ejecuta si salio todo bien
-// catch = se ejecuta si algo salio mnal
-// finally = medio opcional, se ejecuta siempre al final
-// Promise.all = espera que todas las promesas se resuelvan, permite resolverlas al mismo tiempo
-// async - await = Forma moderna de escribir codigo asincronico
+// // Resumen:
+// // Promise = representa una operacion que puede completarse, o fallar. Se manejan con then o async/await
+// // then = Se ejecuta si salio todo bien
+// // catch = se ejecuta si algo salio mnal
+// // finally = medio opcional, se ejecuta siempre al final
+// // Promise.all = espera que todas las promesas se resuelvan, permite resolverlas al mismo tiempo
+// // async - await = Forma moderna de escribir codigo asincronico
 
 
 

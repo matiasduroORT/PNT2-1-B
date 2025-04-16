@@ -70,9 +70,9 @@ const dobles = numeros.map( (num, peras) => {
 
 const mayoresA1 = numeros.filter( num => num > 1)
 
-function ejecutarOperacion(num1, num2, callback){
-    const resultado = callback(num1, num2)
-    console.log(`El resultado de la operacion ${callback} da igual a ${resultado}`);
+function ejecutarOperacion(num1, num2, pepe){
+    const resultado = pepe(num1, num2)
+    console.log(`El resultado de la operacion ${pepe} da igual a ${resultado}`);
 }
 
 ejecutarOperacion(2, 7, (num1, num2) => num1 + num2)
